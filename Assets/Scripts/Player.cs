@@ -106,7 +106,7 @@ public class Player : MonoBehaviour {
         m_Animator = this.GetComponent<Animator>();
         this.name = playerName;
        
-        Physics.gravity = new Vector3(0, -15F, 0);
+        Physics.gravity = new Vector3(0, -25F, 0);
         _makeInstance();
     }
 
@@ -161,31 +161,32 @@ public class Player : MonoBehaviour {
     }
     // ngoi xuong
     public void moveDown() {
-        m_Animator.ResetTrigger("player_idle");
+        Debug.Log("ngoi xuong");
         m_Animator.SetTrigger("player_sit");
         state = 2;
     }
 
-   
+    public void animationStandUp(){
+        m_Animator.ResetTrigger("player_sit");
+        m_Animator.SetTrigger("player_idle");
+        state = 1;
+    }
     // dung len
     public void standUp()
     {
         if (state == 2)
         {
-            m_Animator.ResetTrigger("player_sit");
-            m_Animator.SetTrigger("player_idle");
-            state = 1;
+            Debug.Log("gui len sv yeu cau dung day");
+            Controller.instance.moveUp();
         }
-        else {
-            Debug.Log("collisionEnter" + collisionEnter);
-            Debug.Log("checkAttacking" + this.checkAttacking());
+        else if(state == 1){
             if (collisionEnter == true && !this.checkAttacking())
             {
-                //Debug.Log("Nhay len");
-                myBody.AddForce(new Vector3(0, 5, 0) * 100);
+                Controller.instance.jump();
                 state = 3;
-                this.animationStandup();
                 collisionEnter = false;
+                Debug.Log("gui len sv yeu cau nhay len!!!");
+
             }
         }
     }
@@ -226,12 +227,14 @@ public class Player : MonoBehaviour {
 
     public void jump()
     {
-        if (!this.checkAttacking())
-        {
-            //this.animationJump();
-            // gui len server
-            Controller.instance.jump();
-        }
+        Debug.Log("Nhay len ne");
+        state = 3;
+        collisionEnter = false;
+        myBody.AddForce(new Vector3(0, 6, 0) * 100);
+        // myBody.AddForce(new Vector3(0, 10, 0), ForceMode.Impulse);
+        // myBody.AddForce(Vector3.up * 90 * Time.deltaTime);
+        this.animationStandup();
+
     }
 
     public void block()
@@ -297,7 +300,16 @@ public class Player : MonoBehaviour {
 
     public void animationStandup()
     {
-        m_Animator.SetTrigger("player_jumping");
+        Debug.Log("nhay len animatino");
+        if(m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_idle")){
+            m_Animator.ResetTrigger("player_idle");
+            m_Animator.SetTrigger("player_jumping");
+        }
+        if(m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_move")){
+            m_Animator.ResetTrigger("player_move");
+            m_Animator.SetTrigger("player_jumping");
+        }
+
     }
 
     public void beFirebyNormalBulletEnemy()
@@ -311,18 +323,41 @@ public class Player : MonoBehaviour {
     public void hit(){
         if (!m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_hit"))
         {
-            m_Animator.Play("player_hit");
-            audioSource.PlayOneShot(getHitAudio);
-            if (this.health > 0)
-            {
-                this.health = Mathf.Max(0, this.health - enemyDamge);
+            if(m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_Block")){
+                audioSource.PlayOneShot(getHitAudio);
+                if (this.health > 0)
+                {
+                    this.health = Mathf.Max(0, this.health - enemyDamge/2);
+                }
+                HealthImage.transform.localScale = new Vector2(health / maxHealth, 1);
             }
-            HealthImage.transform.localScale = new Vector2(health / maxHealth, 1);
+            else{
+                m_Animator.Play("player_hit");
+                audioSource.PlayOneShot(getHitAudio);
+                if (this.health > 0)
+                {
+                    this.health = Mathf.Max(0, this.health - enemyDamge);
+                }
+                HealthImage.transform.localScale = new Vector2(health / maxHealth, 1);
+            }
+
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.tag == "Ground")
+        {
+            if(!collisionEnter){
+                Debug.Log("Cham dat ne");
+                collisionEnter = true;
+                if (state == 3) state = 1;
+            }
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -332,6 +367,7 @@ public class Player : MonoBehaviour {
             myBody.velocity = new Vector2(0, 0);
         }
         else if(collision.collider.tag == "Ground"){
+            Debug.Log("Cham dat ne");
             collisionEnter = true;
             state = 1;
         }
@@ -342,6 +378,11 @@ public class Player : MonoBehaviour {
     {
         if(collision.collider.tag == "Player"){
             collisionPlayer = false;
+        }
+        else if (collision.collider.tag == "Ground")
+        {
+            state = 3;
+            collisionEnter = false;
         }
         // myBody.velocity = new Vector2(0, 0);
         //Debug.Log("het va cham");

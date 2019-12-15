@@ -45,8 +45,8 @@ public class Controller : MonoBehaviour
     private AudioSource source;
     // my damge
     int myDamge;
-    Vector2 spawnPositionFirst = new Vector2(-5, -2.65f);
-    Vector2 spawnPositionSecond = new Vector2(5, -2.65f);
+    Vector2 spawnPositionFirst = new Vector2(-5, 2.65f);
+    Vector2 spawnPositionSecond = new Vector2(5, 2.65f);
     Vector2 temp;
     void Start()
     {
@@ -139,12 +139,12 @@ public class Controller : MonoBehaviour
 
     public void permisPlayerUp(SocketIOEvent obj)
     {
-        playerCom.standUp();
+        playerCom.animationStandUp();
     }
 
     public void permisJump(SocketIOEvent obj)
     {
-        playerCom.animationJump();
+        playerCom.jump();
     }
     public void permisBlock(SocketIOEvent obj)
     {
@@ -252,7 +252,7 @@ public class Controller : MonoBehaviour
     }
     private void otherPlayerJump(SocketIOEvent obj)
     {
-        otherPlayCom.animationJump();
+        otherPlayCom.jump();
     }
     private void otherPlayerBlock(SocketIOEvent obj)
     {
@@ -401,7 +401,7 @@ public class Controller : MonoBehaviour
     }
     public void otherPlayerUp(SocketIOEvent obj)
     {
-        otherPlayCom.standUp();
+        otherPlayCom.animationStandUp();
     }
     public void moveUp()
     {

@@ -167,10 +167,11 @@ public class JoyStickController : MonoBehaviour {
             {
                 setAllMoveFalse();
                 lastUp = true;
+                Debug.Log("nhay len joy");
                 // di chuyen nhan vat
-                //player.standUp();
+                player.standUp();
                 // gui len server
-                Controller.instance.moveUp();
+                // Controller.instance.moveUp();
             }
         }
         else

@@ -1,6 +1,6 @@
 OSXUniversal
 PlayerPath?
-/Users/apple/Documents/Code/Tank Online/Build File/New charactor/LTU32_online2.app
+/Users/apple/Documents/Code/Tank Online/Build File/New charactor/1111.app
 SceneListBegin?
 Assets/Scenes/GamePlay.unity
 Assets/Scenes/Play.unity

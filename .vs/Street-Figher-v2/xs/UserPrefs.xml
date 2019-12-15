@@ -2,10 +2,9 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/JoyStickController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Controller.cs" Line="268" Column="10" />
-      <File FileName="Assets/Scripts/Player.cs" Line="59" Column="29" />
-      <File FileName="Assets/Scripts/WinController.cs" Line="45" Column="62" />
-      <File FileName="Assets/Scripts/JoyStickController.cs" Line="208" Column="54" />
+      <File FileName="Assets/Scripts/Controller.cs" Line="379" Column="18" />
+      <File FileName="Assets/Scripts/Player.cs" Line="288" Column="10" />
+      <File FileName="Assets/Scripts/JoyStickController.cs" Line="171" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
