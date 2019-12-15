@@ -56,6 +56,10 @@ public class Player : MonoBehaviour {
         this.enemyDamge = n;
     }
 
+    public void animationWin(){
+        m_Animator.Play("player_win");
+    }
+
     public void setMyHealth(float n){
         this.maxHealth = n;
         this.health = n;

@@ -260,6 +260,8 @@ public class Controller : MonoBehaviour
     {
         GameObject otherPlayer;
         string characterId = evt.data.GetField("character").ToString();
+        string enemyName = evt.data.GetField("name").ToString();
+        enemyName = enemyName.Replace("\"", "").Replace("\"", "");
         Debug.Log("Id Nhan duoc tu server:" + characterId);
         Player typePlayer = getTypePlayer(characterId);
         if (firstPlayerinRoom)
@@ -275,7 +277,7 @@ public class Controller : MonoBehaviour
         //Debug.Log("GEt the message server: " + evt + "user connected") ;
 
         otherPlayCom = otherPlayer.GetComponent<Player>();
-        otherPlayCom.playerName = namePlayer;
+        otherPlayCom.playerName = enemyName;
         // set chi so
         otherPlayCom.setMyHealth(typePlayer.GetComponent<Character>().Health);
         otherPlayCom.setEnemyDamge(myDamge);

@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{6D4621E9-D434-BD42-551F-4C6B5D59E5B6}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/JoyStickController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Controller.cs" Line="268" Column="10" />
+      <File FileName="Assets/Scripts/Player.cs" Line="59" Column="29" />
+      <File FileName="Assets/Scripts/WinController.cs" Line="45" Column="62" />
+      <File FileName="Assets/Scripts/JoyStickController.cs" Line="208" Column="54" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

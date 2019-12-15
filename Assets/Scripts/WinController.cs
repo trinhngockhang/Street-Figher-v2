@@ -42,6 +42,7 @@ public class WinController : MonoBehaviour {
             if ((Controller.instance.playerCom.getHealth() <= 0))
             {
                 Controller.instance.otherPlayCom.playWinAudio();
+                Controller.instance.otherPlayCom.animationWin();
                 //Debug.Log("still" + Time.time);
                 winpanel.gameObject.SetActive(true);
                 textWin.text = "You Lose!";
@@ -50,6 +51,7 @@ public class WinController : MonoBehaviour {
             {
                 //Debug.Log("still" + Time.time);
                 Controller.instance.playerCom.playWinAudio();
+                Controller.instance.playerCom.animationWin();
                 winpanel.gameObject.SetActive(true);
                 textWin.text = "You Win!";
             }
