@@ -63,6 +63,7 @@ public class Controller : MonoBehaviour
         socket.On("PERMIS_BLOCK", permisBlock);
         socket.On("PERMIS_IDLE", permisIdle);
         socket.On("PERMIS_ATTACK", permisAttack);
+        socket.On("PERMIS_UP", permisPlayerUp);
         socket.On("OTHERPLAYERCHANGEVELOCITY", onUserChange);
         socket.On("GETID", getMyId);
         socket.On("USER_DISCONNECTED", OnUserDisConnected);
@@ -135,6 +136,12 @@ public class Controller : MonoBehaviour
         //Debug.Log("Server dang xu ly tren Player: " + Player.instance.playerTest);
         //Debug.Log("Hai player la: " + playerCom + " " + otherPlayCom) ;
     }
+
+    public void permisPlayerUp(SocketIOEvent obj)
+    {
+        playerCom.standUp();
+    }
+
     public void permisJump(SocketIOEvent obj)
     {
         playerCom.animationJump();

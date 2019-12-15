@@ -168,7 +168,7 @@ public class JoyStickController : MonoBehaviour {
                 setAllMoveFalse();
                 lastUp = true;
                 // di chuyen nhan vat
-                player.standUp();
+                //player.standUp();
                 // gui len server
                 Controller.instance.moveUp();
             }

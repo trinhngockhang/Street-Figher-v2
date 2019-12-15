@@ -60,6 +60,11 @@ public class Player : MonoBehaviour {
         m_Animator.Play("player_win");
     }
 
+    public void animationLose()
+    {
+        m_Animator.Play("player_lose");
+    }
+
     public void setMyHealth(float n){
         this.maxHealth = n;
         this.health = n;
@@ -117,7 +122,8 @@ public class Player : MonoBehaviour {
     {
         if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_H_punch")
            || m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_M_punch")
-           || m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_kick"))
+           || m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_Kick")
+           || m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_SitKick"))
         {
             return true;
         }
@@ -171,7 +177,8 @@ public class Player : MonoBehaviour {
             state = 1;
         }
         else {
-            //if (myBody.position.y < playerY)
+            Debug.Log("collisionEnter" + collisionEnter);
+            Debug.Log("checkAttacking" + this.checkAttacking());
             if (collisionEnter == true && !this.checkAttacking())
             {
                 //Debug.Log("Nhay len");

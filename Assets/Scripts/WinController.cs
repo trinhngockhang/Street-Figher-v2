@@ -43,6 +43,7 @@ public class WinController : MonoBehaviour {
             {
                 Controller.instance.otherPlayCom.playWinAudio();
                 Controller.instance.otherPlayCom.animationWin();
+                Controller.instance.playerCom.animationLose();
                 //Debug.Log("still" + Time.time);
                 winpanel.gameObject.SetActive(true);
                 textWin.text = "You Lose!";
@@ -52,6 +53,7 @@ public class WinController : MonoBehaviour {
                 //Debug.Log("still" + Time.time);
                 Controller.instance.playerCom.playWinAudio();
                 Controller.instance.playerCom.animationWin();
+                Controller.instance.otherPlayCom.animationLose();
                 winpanel.gameObject.SetActive(true);
                 textWin.text = "You Win!";
             }
