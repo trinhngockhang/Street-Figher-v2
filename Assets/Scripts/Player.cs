@@ -199,12 +199,15 @@ public class Player : MonoBehaviour {
         if (!this.checkAttacking())
         {
             //Debug.Log("set status");
-            if(state == 1)
-            m_Animator.SetTrigger("player_idle");
+            if(state == 1){
+                Debug.Log("Dung lai!!!!!!!");
+                m_Animator.SetTrigger("player_idle");
+            }
+
             else if(state == 2)
             m_Animator.SetTrigger("player_sit");
         }
-        myBody.velocity = new Vector2(0, 0);
+        myBody.velocity = new Vector2(0, myBody.velocity.y);
     }
 
     public void punch(){
@@ -301,13 +304,13 @@ public class Player : MonoBehaviour {
     public void animationStandup()
     {
         Debug.Log("nhay len animatino");
-        if(m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_idle")){
+        if(m_Animator.GetCurrentAnimatorStateInfo(0).IsName("idle")){
             m_Animator.ResetTrigger("player_idle");
-            m_Animator.SetTrigger("player_jumping");
+            m_Animator.Play("player_jumping");
         }
         if(m_Animator.GetCurrentAnimatorStateInfo(0).IsName("player_move")){
             m_Animator.ResetTrigger("player_move");
-            m_Animator.SetTrigger("player_jumping");
+            m_Animator.Play("player_jumping");
         }
 
     }
@@ -446,6 +449,10 @@ public class Player : MonoBehaviour {
     {   
         //Debug.Log("velocity:" + myBody.velocity);
         if (!checkAttacking()) attacked = false;
+        //Vector2 S = this.GetComponent<SpriteRenderer>().sprite.bounds.size;
+        //GetComponent<BoxCollider>().size = S;
+        //GetComponent<BoxCollider>().center = new Vector2((S.x / 2), 0);
+
     }
     private void FixedUpdate()
     {

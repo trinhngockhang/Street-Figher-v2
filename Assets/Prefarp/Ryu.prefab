@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7794b54cc02a247be8d51c1b9d25bc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 150
-  Damge: 49
+  Health: 250
+  Damge: 45
   speed: 10
 --- !u!82 &82143567291598810
 AudioSource:

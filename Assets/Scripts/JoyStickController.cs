@@ -177,7 +177,7 @@ public class JoyStickController : MonoBehaviour {
         else
         {
 
-            if (lastLeft || lastRight)
+            if (lastLeft || lastRight || lastUp)
             {
                 setAllMoveFalse();
                 //Debug.Log("vua di chuyen xong");

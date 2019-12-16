@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 200
-  Damge: 50
+  Damge: 30
   speed: 10
 --- !u!95 &970035952
 Animator:

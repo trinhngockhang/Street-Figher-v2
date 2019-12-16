@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7794b54cc02a247be8d51c1b9d25bc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 200
-  Damge: 50
+  Health: 210
+  Damge: 30
   speed: 0
 --- !u!114 &114908574759307868
 MonoBehaviour:

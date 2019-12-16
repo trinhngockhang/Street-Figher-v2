@@ -883,7 +883,7 @@ RectTransform:
   - {fileID: 829850194}
   - {fileID: 1408518038}
   m_Father: {fileID: 1353416997}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1827,11 +1827,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464660563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -639.973, y: -399.895, z: 0}
-  m_LocalScale: {x: 2.0784209, y: 2.0247781, z: 1}
+  m_LocalPosition: {x: -0.020019531, y: -0.02, z: 0}
+  m_LocalScale: {x: 2.6242142, y: 2.0652738, z: 1}
   m_Children: []
-  m_Father: {fileID: 1353416997}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &464660565
 SpriteRenderer:
@@ -3169,7 +3169,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LTU Fighter
+  m_Text: Stress Fighter
 --- !u!222 &619216837
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4587,7 +4587,7 @@ PrefabInstance:
     - target: {fileID: 114841248202830826, guid: 0020fa647f232b44f8e0508702e07e04,
         type: 2}
       propertyPath: url
-      value: ws://localhost:6969/socket.io/?EIO=4&transport=websocket
+      value: ws://13.76.152.73:6969/socket.io/?EIO=4&transport=websocket
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0020fa647f232b44f8e0508702e07e04, type: 2}
@@ -5075,7 +5075,7 @@ GameObject:
   - component: {fileID: 901255564}
   m_Layer: 0
   m_Name: Right-Wall
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5868,7 +5868,7 @@ GameObject:
   - component: {fileID: 1052973215}
   m_Layer: 0
   m_Name: Left-Wall
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7756,7 +7756,6 @@ RectTransform:
   - {fileID: 1563386621}
   - {fileID: 1350118850}
   - {fileID: 666987006}
-  - {fileID: 464660564}
   - {fileID: 289632137}
   - {fileID: 1473682932}
   m_Father: {fileID: 0}
@@ -8622,7 +8621,7 @@ RectTransform:
   m_Children:
   - {fileID: 1488518951}
   m_Father: {fileID: 1353416997}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10377,7 +10376,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1771106372813730, guid: 196b51fbb262a104889f84358d056e2c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4210285178511130, guid: 196b51fbb262a104889f84358d056e2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11337,7 +11336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961346d7e16a445ff93777573e78efd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: ws://localhost:6969/socket.io/?EIO=4&transport=websocket
+  url: ws://13.76.152.73:6969/socket.io/?EIO=4&transport=websocket
   autoConnect: 1
   reconnectDelay: 5
   ackExpirationTime: 1800
