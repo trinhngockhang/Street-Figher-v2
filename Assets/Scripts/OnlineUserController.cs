@@ -96,11 +96,11 @@ public class OnlineUserController : MonoBehaviour {
                     string s = data.data.GetField("client")[i - 1].GetField("name").ToString();
                     idEnemy = data.data.GetField("client")[i - 1].GetField("id").ToString();
                     string gaming = data.data.GetField("client")[i - 1].GetField("gaming").ToString();
-                    //Debug.Log("aaa" + gaming);
+                    Debug.Log(s + " aaa " + gaming);
                     gaming = gaming.Remove(0, 1);
                     gaming = gaming.Remove(gaming.Length - 1, 1);
-                    bool gamingBool = (gaming == "true");
-                    //Debug.Log("thang" + s + " " + gamingBool);
+                    bool gamingBool = (gaming == "2" || gaming == "3");
+                    Debug.Log("thang" + s + " " + gamingBool);
                     ButtonFight fightButton = user1.GetComponentInChildren(typeof(ButtonFight)) as ButtonFight;
                     if (gamingBool)
                     {

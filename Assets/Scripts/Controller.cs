@@ -66,7 +66,7 @@ public class Controller : MonoBehaviour
         socket.On("PERMIS_UP", permisPlayerUp);
         socket.On("OTHERPLAYERCHANGEVELOCITY", onUserChange);
         socket.On("GETID", getMyId);
-        socket.On("USER_DISCONNECTED", OnUserDisConnected);
+       
         socket.On("OTHERPLAYER_H_PUNCH", otherPlayerPunch);
         socket.On("OTHERPLAYER_KICK", otherPlayerKick);
         socket.On("OTHERPLAYER_ATTACK", otherPlayerAttack);
@@ -198,6 +198,7 @@ public class Controller : MonoBehaviour
             otherPlayCom.moveFoward();
         }
     }
+   
     void OnClickPlayBtn()
     {
         if(loginPanel.inputField.text != "")
@@ -216,7 +217,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    string JsonToString(string target,string s)
+    public string JsonToString(string target,string s)
     {
         string[] newString = Regex.Split(target, s);
         return newString[1];
@@ -228,11 +229,6 @@ public class Controller : MonoBehaviour
         string[] newString = Regex.Split(target, ",");
         newVector = new Vector2(float.Parse(newString[0]), float.Parse(newString[1]));
         return newVector;
-    }
-
-    void OnUserDisConnected(SocketIOEvent obj)
-    {
-        Destroy(GameObject.Find(JsonToString(obj.data.GetField("name").ToString(), "\"")));
     }
 
     private void otherPlayerPunch(SocketIOEvent obj)
